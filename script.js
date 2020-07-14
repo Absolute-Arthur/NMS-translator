@@ -40,7 +40,6 @@ englishTextbox.onkeyup = function(){
 			if (englishString[i].match(/[a-z]/i))
 			{
 				englishWord = englishString.substring(i - wordLength + 1, i + 1)
-				console.log(englishWord)
 				translateEnglishToAlien(englishWord)
 				alienWord = translateEnglishToAlien(englishWord)
 				if (alienWord == undefined)
@@ -62,16 +61,16 @@ function translateEnglishToAlien(word)
 	switch (document.getElementById("alienLanguage").value) //Which language do you want to translate it to?
 	{
 		case "Korvax":
-			return(engToKorvax[englishWord]);
+			return(engToKorvax[word]);
 			break;
 		case "Gek":
-			return(engToGek[englishWord]);
+			return(engToGek[word]);
 			break;
 		case "Vy'keen":
-			return(engToVykeen[englishWord]);
+			return(engToVykeen[word]);
 			break;
 		case "Atlas":
-			return(engToAtlas[englishWord]);
+			return(engToAtlas[word]);
 			break;
 		default:
 			console.error("Hey, you changed something with the alien languages, it doesn't work anymore");
@@ -117,7 +116,6 @@ alienTextbox.onkeyup = function(){
 				if (alienString[i].match(/[a-z]/i))
 				{
 					alienWord = alienString.substring(i - wordLength + 1, i + 1)
-					console.log(alienWord)
 					translateAlienToEnglish(alienWord)
 					englishWord = translateAlienToEnglish(alienWord)
 					if (englishWord == undefined)
@@ -139,16 +137,16 @@ function translateAlienToEnglish(word)
 	switch (document.getElementById("alienLanguage").value) //Which language do you want to translate it from?
 	{
 		case "Korvax":
-			return(korvaxToEng[englishWord]);
+			return(korvaxToEng[word]);
 			break;
 		case "Gek":
-			return(gekToEng[englishWord]);
+			return(gekToEng[word]);
 			break;
 		case "Vy'keen":
-			return(vykeenToEng[englishWord]);
+			return(vykeenToEng[word]);
 			break;
 		case "Atlas":
-			return(atlasToEng[englishWord]);
+			return(atlasToEng[word]);
 			break;
 		default:
 			console.error("Hey, you changed something with the alien languages, it doesn't work anymore");
