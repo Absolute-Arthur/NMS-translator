@@ -4,7 +4,7 @@
 //OPEN QUESTION: Is there a way to easily reverse it? Like you take an alien word and it gives you the english translation.
 //I should have done that first...
 
-var korvax =
+var engToKorvax =
 	{
 	"rare":"vaiut",
 	"warning":"durenise",
@@ -1423,7 +1423,7 @@ var korvax =
 	"ORGANIC":"Tedoykhalya"
 	}
 
-var gek =
+var engToGek =
 	{
 	"give":"unk",
 	"high":"kala",
@@ -2890,7 +2890,7 @@ var gek =
 	"METAL":"gugslis"
 	}
 
-var vykeen =
+var engToVykeen =
 	{
 	"interloper":"ijintaixara",
 	"visual":"ormarr",
@@ -4456,7 +4456,7 @@ var vykeen =
 	"SUBSIDIARY":"Dafenhemiap"
 	}
 
-var atlas =
+var engToAtlas =
 	{
 	"awake":"geos",
 	"witness":"ciputin",
