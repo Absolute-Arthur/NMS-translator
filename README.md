@@ -4,7 +4,7 @@ This translator is a small web app that easily translates from English to one of
 ## How it looks
 Well I'm not good with front end Web developpment so you just have 2 boxes and a language selector. If anyone is willing to improve this, feel free to contribute!
 
-![Screenshot](https://raw.githubusercontent.com/Absolute-Arthur/NMS-translator/master/Annotation%202020-07-14%20004402.png)
+![Screenshot](https://raw.githubusercontent.com/Absolute-Arthur/NMS-translator/master/Screenshot.png)
 
 ## How it's made
 The script ([script.js](../script.js)) is fully made in Javascript, and uses a page ([translator.html](../translator.html)) written in HTML. There's no CSS yet.
