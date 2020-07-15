@@ -1,8 +1,10 @@
 var englishTextbox = document.getElementById("englishTextbox");
 var alienTextbox = document.getElementById("alienTextbox");
+var languageSelector = document.getElementById("alienLanguage")
 
 englishTextbox.onkeyup = engToAl()
 alienTextbox.onkeyup = alToEng()
+languageSelector.onchange = engToAl()
 
 function engToAl()
 {
@@ -60,7 +62,7 @@ function engToAl()
 
 function translateEnglishToAlien(word)
 {
-	switch (document.getElementById("alienLanguage").value) //Which language do you want to translate it to?
+	switch (languageSelector.value) //Which language do you want to translate it to?
 	{
 		case "Korvax":
 			return(engToKorvax[word]);
@@ -136,7 +138,7 @@ function alToEng()
 
 function translateAlienToEnglish(word)
 {
-	switch (document.getElementById("alienLanguage").value) //Which language do you want to translate it from?
+	switch (languageSelector.value) //Which language do you want to translate it from?
 	{
 		case "Korvax":
 			return(korvaxToEng[word]);
