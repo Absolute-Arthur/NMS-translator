@@ -4,7 +4,7 @@ var alienTextbox = document.getElementById("alienTextbox");
 englishTextbox.onkeyup = engToAl()
 alienTextbox.onkeyup = alToEng()
 
-function engToAl()		//Called when the button is clicked
+function engToAl()
 {
 	var englishString = englishTextbox.value;
 	var wordLength = 0 //Initializing before the loop
@@ -80,7 +80,7 @@ function translateEnglishToAlien(word)
 	}
 }
 
-function alToEng()		//Called when the button is clicked
+function alToEng()
 {
 	var alienString = alienTextbox.value;
 	var wordLength = 0 //Initializing before the loop
