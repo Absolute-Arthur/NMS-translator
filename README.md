@@ -1,5 +1,5 @@
 # NMS-translator
-This translator is a small web app that easily translates from English to one of the four alien languages in the video game No Man's Sky.
+This translator is a small web app that easily translates from English to one of the four alien languages and vice versa in the video game No Man's Sky.
 
 ## How it looks
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9f655d17-a32b-47a0-b240-ab06ebcab027/deploy-status)](https://app.netlify.com/sites/nms-translator/deploys)
