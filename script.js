@@ -1,9 +1,11 @@
 var englishTextbox = document.getElementById("englishTextbox");
-
 var alienTextbox = document.getElementById("alienTextbox");
 
-englishTextbox.onkeyup = function(){
-//function engToAl() {		//Called when the button is clicked
+englishTextbox.onkeyup = engToAl()
+alienTextbox.onkeyup = alToEng()
+
+function engToAl()		//Called when the button is clicked
+{
 	var englishString = englishTextbox.value;
 	var wordLength = 0 //Initializing before the loop
 	var alienString = "" //Initializing before the loop
@@ -78,59 +80,59 @@ function translateEnglishToAlien(word)
 	}
 }
 
-alienTextbox.onkeyup = function(){
-	//function engToAl() {		//Called when the button is clicked
-		var alienString = alienTextbox.value;
-		var wordLength = 0 //Initializing before the loop
-		var englishString = "" //Initializing before the loop
-		for(i = 0; i <= alienString.length - 1; i++) //We want to separate the different words, translate them, then restore them with all the characters around
+function alToEng()		//Called when the button is clicked
+{
+	var alienString = alienTextbox.value;
+	var wordLength = 0 //Initializing before the loop
+	var englishString = "" //Initializing before the loop
+	for(i = 0; i <= alienString.length - 1; i++) //We want to separate the different words, translate them, then restore them with all the characters around
+	{
+		if (alienString[i].match(/[a-z]/i)) //Is it a letter?
 		{
-			if (alienString[i].match(/[a-z]/i)) //Is it a letter?
+			wordLength++ //If it is, then the word is a bit longer
+		}
+		else //Otherwise, we reached the end of the word
+		{
+			if (wordLength == 0) //This is to correctly restore subsequent non-letter characters
 			{
-				wordLength++ //If it is, then the word is a bit longer
+				englishString = englishString + alienString[i]
 			}
-			else //Otherwise, we reached the end of the word
+			else
 			{
-				if (wordLength == 0) //This is to correctly restore subsequent non-letter characters
+				alienWord = alienString.substring(i - wordLength, i) //It's not a letter, the word ended. Let's translate it
+				englishWord = translateAlienToEnglish(alienWord)
+				if (englishWord == undefined)
 				{
-					englishString = englishString + alienString[i]
+					englishString = englishString + alienWord //If it's not a translatable word, we'll keep the original, like Google translate does
 				}
 				else
 				{
-					alienWord = alienString.substring(i - wordLength, i) //It's not a letter, the word ended. Let's translate it
-					englishWord = translateAlienToEnglish(alienWord)
-					if (englishWord == undefined)
-					{
-						englishString = englishString + alienWord //If it's not a translatable word, we'll keep the original, like Google translate does
-					}
-					else
-					{
-						englishString = englishString + englishWord
-					}
-					englishString = englishString + alienString[i] //Let's not forget the non-letter character that made us stop
-					wordLength = 0 //The word ended, let's start counting again
+					englishString = englishString + englishWord
 				}
+				englishString = englishString + alienString[i] //Let's not forget the non-letter character that made us stop
+				wordLength = 0 //The word ended, let's start counting again
 			}
-			if (i == alienString.length - 1) //Verification for the last word, let's not forget to process it
+		}
+		if (i == alienString.length - 1) //Verification for the last word, let's not forget to process it
+		{
+			if (alienString[i].match(/[a-z]/i))
 			{
-				if (alienString[i].match(/[a-z]/i))
+				alienWord = alienString.substring(i - wordLength + 1, i + 1)
+				translateAlienToEnglish(alienWord)
+				englishWord = translateAlienToEnglish(alienWord)
+				if (englishWord == undefined)
 				{
-					alienWord = alienString.substring(i - wordLength + 1, i + 1)
-					translateAlienToEnglish(alienWord)
-					englishWord = translateAlienToEnglish(alienWord)
-					if (englishWord == undefined)
-					{
-						englishString = englishString + alienWord //If it's not a translatable word, we'll keep the original, like Google translate does
-					}
-					else
-					{
-						englishString = englishString + englishWord
-					}
+					englishString = englishString + alienWord //If it's not a translatable word, we'll keep the original, like Google translate does
+				}
+				else
+				{
+					englishString = englishString + englishWord
 				}
 			}
 		}
-		englishTextbox.value = englishString
-	};
+	}
+	englishTextbox.value = englishString
+};
 
 function translateAlienToEnglish(word)
 {
