@@ -107,7 +107,7 @@ alienTextbox.onkeyup = function(){
 					{
 						englishString = englishString + englishWord
 					}
-					englishString = englishString + alienhString[i] //Let's not forget the non-letter character that made us stop
+					englishString = englishString + alienString[i] //Let's not forget the non-letter character that made us stop
 					wordLength = 0 //The word ended, let's start counting again
 				}
 			}
